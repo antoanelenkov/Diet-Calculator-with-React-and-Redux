@@ -9,12 +9,18 @@ export function addFoodSuccess(food) {
     return { type: ActionTypes.ADD_FOOD, food };
 }
 
+export function editFoodSuccess(food) {
+    return { type: ActionTypes.EDIT_FOOD, food };
+}
+
 export default {
     addFood: function (food) {
         return function (dispatch) {
             foodApi
-                .add(food.name, food.type, food.calories, food.protein, food.carbs, food.fats)
-                .then(food => dispatch(addFoodSuccess(food)));
+                .save(food.id, food.name, food.type, food.calories, food.proteins, food.carbs, food.fats)
+                .then(savedFood => {
+                    food.id ? dispatch(editFoodSuccess(savedFood)) : dispatch(addFoodSuccess(savedFood));
+                });
         }
     },
     getAll: function () {

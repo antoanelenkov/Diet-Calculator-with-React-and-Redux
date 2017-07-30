@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import foodsActions from '../../actions/foodsActions';
-import CaloriesCountType from '../../constants/CaloriesCountType';
+import * as CaloriesCountType from '../../constants/CaloriesCountType';
 import InputFormGroup from '../HtmlHelpers/InputFormGroup';
 
 
-class AddFoodPage extends React.Component {
+class ManageFoodPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -30,9 +30,10 @@ class AddFoodPage extends React.Component {
         let state = {};
         state.food = {};
         state.food[event.target.id] = event.target.value;
-        
+
         this.setState((prevState, props) => {
-            return Object.assign({},prevState,state);
+            debugger;
+            return { food: Object.assign(prevState.food, state.food) };
         });
     }
 
@@ -55,8 +56,7 @@ class AddFoodPage extends React.Component {
                         <div className="form-group">
                             <label htmlFor="type">Type:</label>
                             <select className="form-control" id="type">
-                                <option>1</option>
-                                <option>2</option>
+                                {Object.values(CaloriesCountType).map(type => (<option value={type}>{type}</option>))}
                             </select>
                         </div>
                         <div className="form-group">
@@ -69,8 +69,8 @@ class AddFoodPage extends React.Component {
     }
 }
 
-AddFoodPage.PropTypes = {
-    foods: PropTypes.object.isRequired,
+ManageFoodPage.PropTypes = {
+    foods: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 }
 
@@ -86,4 +86,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddFoodPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageFoodPage);

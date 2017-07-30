@@ -10,7 +10,7 @@ class Navigation extends React.Component {
                     {" | "}
                     <Link to="/foods">Foods</Link>
                     {" | "}
-                    <Link to="/add-food">Add new food</Link>
+                    <Link to="/manage-food">Add new food</Link>
                 </nav>
             </div>
         );

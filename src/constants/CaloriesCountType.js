@@ -1,4 +1,2 @@
-export default {
-    PER_HUNDRED_GRAMS: "Per hundred types",
-    PER_ITEM: "Per item"
-}
+export const PER_HUNDRED_GRAMS = "Per hundred grams";
+export const PER_ITEM = "Per item";

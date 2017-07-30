@@ -14,36 +14,22 @@ const foodApi = (function () {
         });
     };
 
-    api.add = function (name, type, calories, protein, carbs, fats) {
+    api.save = function (id, name, type, calories, proteins, carbs, fats) {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
-                foods[++idGenerator] = {
+                const itemToSave = {
+                    id: id || ++idGenerator,
                     name,
                     type,
                     calories,
-                    protein,
+                    proteins,
                     carbs,
                     fats
-                };
+                }
 
-                resolve(foods[idGenerator]);
-            }, remoteCallDelay)
-        });
-    };
+                foods.push(itemToSave);
 
-    api.update = function (id, name, type, calories, protein, carbs, fats) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(() => {
-                foods[id] = {
-                    name,
-                    type,
-                    calories,
-                    protein,
-                    carbs,
-                    fats
-                };
-
-                resolve(foods[id]);
+                resolve(itemToSave);
             }, remoteCallDelay)
         });
     };
@@ -51,10 +37,14 @@ const foodApi = (function () {
     api.delete = function (id) {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
-                delete foods[id];
+                delete api._find(id);
                 resolve();
             }, remoteCallDelay)
         });
+    }
+
+    api._find = function(id){
+        return foods.find( food => food.id === id);
     }
 
     return api;

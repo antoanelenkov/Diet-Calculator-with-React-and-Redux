@@ -36,13 +36,13 @@ class FoodsPage extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {Object.values(this.props.foods).map(food => {
+                            {this.props.foods.map(food => {
                                 return (
                                     <tr>
                                         <td>{food.name}</td>
                                         <td>{food.type}</td>
                                         <td>{food.calories}</td>
-                                        <td>{food.protein}</td>
+                                        <td>{food.proteins}</td>
                                         <td>{food.carbs}</td>
                                         <td>{food.fats}</td>
                                         <td><input type="button" className="btn btn-primary" value="Edit" onClick={this.handleOnClick}/></td>
@@ -60,7 +60,7 @@ class FoodsPage extends React.Component {
 }
 
 FoodsPage.PropTypes = {
-    foods: PropTypes.object.isRequired,
+    foods: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 }
 

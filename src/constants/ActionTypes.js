@@ -1,1 +1,1 @@
-export const {ADD_FOOD};
+export default { ADD_FOOD : "ADD_FOOD"}

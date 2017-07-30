@@ -8,9 +8,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import configureStore from './store/configureStore'
 import { Provider } from 'react-redux';
-
+import foodsActions from './actions/foodsActions'
 
 const store = configureStore(/*inital state - data from server if needed. If not, default state is used*/)
+store.dispatch(foodsActions.getAll());
 
 ReactDOM.render(
     <Provider store={store}>

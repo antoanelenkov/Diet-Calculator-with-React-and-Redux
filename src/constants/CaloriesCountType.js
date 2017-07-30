@@ -1,4 +1,4 @@
-export const {
-    PER_HUNDRED_GRAMS,
-    PER_ITEM
+export default {
+    PER_HUNDRED_GRAMS: "Per hundred types",
+    PER_ITEM: "Per item"
 }

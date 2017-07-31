@@ -5,22 +5,14 @@ import { bindActionCreators } from 'redux';
 import foodsActions from '../../actions/foodsActions';
 import * as CaloriesCountType from '../../constants/CaloriesCountType';
 import InputFormGroup from '../HtmlHelpers/InputFormGroup';
+import { withRouter } from 'react-router-dom';
 
 
 class ManageFoodPage extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
-        this.state = {
-            food: {
-                name: "",
-                calories: "",
-                proteins: "",
-                carbs: "",
-                fats: "",
-                type: CaloriesCountType.PER_HUNDRED_GRAMS,
-            }
-        }
+        this.state = { food: Object.assign({}, this.props.food) };
 
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -32,14 +24,13 @@ class ManageFoodPage extends React.Component {
         state.food[event.target.id] = event.target.value;
 
         this.setState((prevState, props) => {
-            debugger;
             return { food: Object.assign(prevState.food, state.food) };
         });
     }
 
     handleOnSubmit() {
-        debugger;
         this.props.actions.addFood(this.state.food);
+        this.props.history.push('/foods');
     }
 
     render() {
@@ -60,7 +51,7 @@ class ManageFoodPage extends React.Component {
                             </select>
                         </div>
                         <div className="form-group">
-                            <input type="submit" value="Add" className="form-control" id="add-food-btn" onClick={this.handleOnSubmit} />
+                            <input type="submit" value="Add" className="form-control btn btn-primary" id="add-food-btn" onClick={this.handleOnSubmit} />
                         </div>
                     </div>
                 </div>
@@ -75,8 +66,22 @@ ManageFoodPage.PropTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
+    const foodId = ownProps.match.params.id * 1;
+
+    let foodToMapOnProps = {
+        name: "",
+        calories: "",
+        proteins: "",
+        carbs: "",
+        fats: "",
+        type: CaloriesCountType.PER_HUNDRED_GRAMS,
+    };
+
+    if (foodId && state.foodsReducer.length) {
+        foodToMapOnProps = state.foodsReducer.find(food => food.id === foodId);
+    }
     return {
-        foods: state.foodsReducer
+        food: foodToMapOnProps
     };
 }
 

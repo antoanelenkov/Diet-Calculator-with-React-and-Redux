@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import foodsActions from '../../actions/foodsActions';
 import CaloriesCountType from '../../constants/CaloriesCountType';
+import { withRouter } from 'react-router-dom';
 
 
 class FoodsPage extends React.Component {
@@ -14,7 +15,7 @@ class FoodsPage extends React.Component {
     }
 
     handleOnClick(event) {
-        alert(event.target);
+        event.target.value == "Edit" && this.props.history.push('manage-food/' + event.target.attributes['data-food-id'].value)
     }
 
     render() {
@@ -45,8 +46,8 @@ class FoodsPage extends React.Component {
                                         <td>{food.proteins}</td>
                                         <td>{food.carbs}</td>
                                         <td>{food.fats}</td>
-                                        <td><input type="button" className="btn btn-primary" value="Edit" onClick={this.handleOnClick}/></td>
-                                        <td><input type="button" className="btn btn-primary" value="Delete" onClick={this.handleOnClick}/></td>
+                                        <td><input type="button" className="btn btn-primary" value="Edit" data-food-id={food.id} onClick={this.handleOnClick} /></td>
+                                        <td><input type="button" className="btn btn-primary" value="Delete" data-food-id={food.id} onClick={this.handleOnClick} /></td>
                                     </tr>
                                 )
                             })}

@@ -41,9 +41,7 @@ class ManageFoodPage extends React.Component {
     }
 
     render() {
-        return (
-            <ManageFoodsPageView food={this.state.food} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}/>
-        );
+        return (<ManageFoodsPageView food={this.state.food} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}/>);
     }
 }
 

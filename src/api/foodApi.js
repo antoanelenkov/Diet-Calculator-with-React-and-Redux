@@ -8,7 +8,7 @@ export default (function () {
 
     api.getAll = function () {
         return new Promise(function (resolve, reject) {
-            setTimeout(() => { resolve(foods) }, remoteCallDelay)
+            setTimeout(() => { resolve([...foods]) }, remoteCallDelay)
         });
     };
 
@@ -23,9 +23,9 @@ export default (function () {
                     proteins,
                     carbs,
                     fats
-                }
+                };
 
-                foods.push(itemToSave);
+                id ? (foods[id-1]=itemToSave) : foods.push(itemToSave);
                 _updateFoodsStorage();
             
             resolve(itemToSave);

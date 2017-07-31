@@ -1,12 +1,10 @@
-import _foods from './foods.js'
-
-const foodApi = (function () {
+export default (function () {
     const api = {};
 
-    const foods = _foods;
+    const foods = _getFoodsFromStorage();
     const remoteCallDelay = 500;
 
-    let idGenerator = _foods.length;
+    let idGenerator = foods.length;
 
     api.getAll = function () {
         return new Promise(function (resolve, reject) {
@@ -28,8 +26,9 @@ const foodApi = (function () {
                 }
 
                 foods.push(itemToSave);
-
-                resolve(itemToSave);
+                _updateFoodsStorage();
+            
+            resolve(itemToSave);
             }, remoteCallDelay)
         });
     };
@@ -38,16 +37,24 @@ const foodApi = (function () {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
                 delete api._find(id);
+                _updateFoodsStorage();
+                    
                 resolve();
             }, remoteCallDelay)
         });
-    }
+    };
 
     api._find = function(id){
-        return foods.find( food => food.id === id);
-    }
+            return foods.find( food => food.id === id);
+    };
+
+    function _updateFoodsStorage() {
+        localStorage["foods"] = JSON.stringify(foods);
+    };
+
+    function _getFoodsFromStorage() {
+        return (localStorage["foods"] && JSON.parse(localStorage["foods"])) || [];
+    };
 
     return api;
 }());
-
-export default foodApi;

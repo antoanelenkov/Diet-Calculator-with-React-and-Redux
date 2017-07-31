@@ -1,9 +1,9 @@
 export default (function () {
     const api = {};
 
-    const foods = _getFoodsFromStorage();
     const remoteCallDelay = 500;
 
+    let foods = _getFoodsFromStorage();
     let idGenerator = foods.length;
 
     api.getAll = function () {
@@ -36,16 +36,12 @@ export default (function () {
     api.delete = function (id) {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
-                foods.splice(id-1,1);
+                foods = foods.filter(food => food.id !== id)
                 _updateFoodsStorage();
                     
                 resolve();
             }, remoteCallDelay)
         });
-    };
-
-    api._find = function(id){
-            return foods.find( food => food.id === id);
     };
 
     function _updateFoodsStorage() {

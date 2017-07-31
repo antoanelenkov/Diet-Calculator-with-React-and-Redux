@@ -21,7 +21,7 @@ export default (props) => {
                     <tbody>
                         {props.foods.map(food => {
                             return (
-                                <tr>
+                                <tr key={food.id}>
                                     <td>{food.name}</td>
                                     <td>{food.type}</td>
                                     <td>{food.calories}</td>

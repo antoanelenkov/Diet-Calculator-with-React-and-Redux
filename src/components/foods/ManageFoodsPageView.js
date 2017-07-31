@@ -17,7 +17,7 @@ export default (props) => {
                     <InputFormGroup type="number" id="proteins" labelName="Proteins" value={props.food.proteins} handleOnChange={props.handleOnChange} />
                     <InputFormGroup type="number" id="carbs" labelName="Carbs" value={props.food.carbs} handleOnChange={props.handleOnChange} />
                     <SelectFormGroup id="calories-type-select" labelName="Type:" options={Object.values(CaloriesCountType)} />
-                    <ButtonFormGroup value="Add" onClick={props.handleOnSubmit} />
+                    <ButtonFormGroup value="Add" handleOnSubmit={props.handleOnSubmit} />
                 </div>
             </div>
         </div>

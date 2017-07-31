@@ -1,10 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import foodsActions from '../../actions/foodsActions';
 import * as CaloriesCountType from '../../constants/CaloriesCountType';
-import { withRouter } from 'react-router-dom';
 import ManageFoodsPageView from './ManageFoodsPageView';
 
 
@@ -20,7 +19,7 @@ class ManageFoodPage extends React.Component {
 
     // Invoked after mapStateToProps func is called
     componentWillReceiveProps(nextProps) {
-        if (this.props.food.id != nextProps.food.id) {
+        if (this.props.food.id !== nextProps.food.id) {
             this.setState({ food: Object.assign(nextProps.food) });
         }
     }
@@ -45,11 +44,6 @@ class ManageFoodPage extends React.Component {
     }
 }
 
-ManageFoodPage.PropTypes = {
-    foods: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-}
-
 function mapStateToProps(state, ownProps) {
     const foodId = ownProps.match.params.id * 1;
 
@@ -62,9 +56,9 @@ function mapStateToProps(state, ownProps) {
         type: CaloriesCountType.PER_HUNDRED_GRAMS,
     };
 
-    if (foodId && state.foodsReducer.length) {
-        foodToMapOnProps = state.foodsReducer.find(food => food.id === foodId);
-    }
+    foodId && state.foodsReducer.length 
+        && (foodToMapOnProps = state.foodsReducer.find(food => food.id === foodId));
+        
     return {
         food: foodToMapOnProps
     };

@@ -5,7 +5,7 @@ export default (props) => {
         <div className="form-group">
             <label htmlFor={props.id}>{props.labelText}</label>
             <select className="form-control" id={props.id}>
-                {props.options.map(option => (<option value={option}>{option}</option>))}
+                {props.options.map(option => (<option key={option} value={option}>{option}</option>))}
             </select>
         </div>
     )

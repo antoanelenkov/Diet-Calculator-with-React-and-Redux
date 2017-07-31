@@ -20,18 +20,15 @@ class ManageFoodPage extends React.Component {
     // Invoked after mapStateToProps func is called
     componentWillReceiveProps(nextProps) {
         if (this.props.food.id !== nextProps.food.id) {
-            this.setState({ food: Object.assign(nextProps.food) });
+            this.setState({ food: nextProps.food });
         }
     }
 
     handleOnChange(event) {
-        let state = {};
-        state.food = {};
-        state.food[event.target.id] = event.target.value;
+        let food = Object.assign({}, this.state.food);
+        food[event.target.id] = event.target.value;
 
-        this.setState((prevState, props) => {
-            return { food: Object.assign(prevState.food, state.food) };
-        });
+        this.setState({ food });
     }
 
     handleOnSubmit() {
@@ -40,7 +37,7 @@ class ManageFoodPage extends React.Component {
     }
 
     render() {
-        return (<ManageFoodsPageView food={this.state.food} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}/>);
+        return (<ManageFoodsPageView food={this.state.food} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />);
     }
 }
 
@@ -56,9 +53,9 @@ function mapStateToProps(state, ownProps) {
         type: CaloriesCountType.PER_HUNDRED_GRAMS,
     };
 
-    foodId && state.foodsReducer.length 
+    foodId && state.foodsReducer.length
         && (foodToMapOnProps = state.foodsReducer.find(food => food.id === foodId));
-        
+
     return {
         food: foodToMapOnProps
     };

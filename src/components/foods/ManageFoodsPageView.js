@@ -1,0 +1,25 @@
+import React from 'react';
+
+import * as CaloriesCountType from '../../constants/CaloriesCountType';
+import InputFormGroup from '../HtmlHelpers/InputFormGroup';
+import ButtonFormGroup from '../HtmlHelpers/ButtonFormGroup';
+import SelectFormGroup from '../HtmlHelpers/SelectFormGroup';
+
+export default (props) => {
+    return (
+        <div>
+            <h3 className="centered">Add new food</h3>
+            <div className="row">
+                <div className="col-md-6 col-md-offset-3">
+                    <InputFormGroup type="text" id="name" labelName="Name" value={props.food.name} handleOnChange={props.handleOnChange} />
+                    <InputFormGroup type="number" id="calories" labelName="Calories" value={props.food.calories} handleOnChange={props.handleOnChange} />
+                    <InputFormGroup type="number" id="fats" labelName="Fats" value={props.food.fats} handleOnChange={props.handleOnChange} />
+                    <InputFormGroup type="number" id="proteins" labelName="Proteins" value={props.food.proteins} handleOnChange={props.handleOnChange} />
+                    <InputFormGroup type="number" id="carbs" labelName="Carbs" value={props.food.carbs} handleOnChange={props.handleOnChange} />
+                    <SelectFormGroup id="calories-type-select" labelName="Type:" options={Object.values(CaloriesCountType)} />
+                    <ButtonFormGroup value="Add" onClick={props.handleOnSubmit} />
+                </div>
+            </div>
+        </div>
+    );
+}

@@ -18,6 +18,13 @@ class ManageFoodPage extends React.Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
+    // Invoked after mapStateToProps func is called
+    componentWillReceiveProps(nextProps) {
+        if (this.props.food.id != nextProps.food.id) {
+            this.setState({ food: Object.assign(nextProps.food) });
+        }
+    }
+
     handleOnChange(event) {
         let state = {};
         state.food = {};

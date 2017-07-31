@@ -14,7 +14,8 @@ class FoodsPage extends React.Component {
     }
 
     handleOnClick(event) {
-        event.target.value === "Edit" && this.props.history.push('manage-food/' + event.target.attributes['data-food-id'].value)
+        event.target.value === "Edit" && this.props.history.push('manage-food/' + event.target.attributes['data-food-id'].value);
+        event.target.value === "Delete" && this.props.actions.delete(event.target.attributes['data-food-id'].value*1);
     }
 
     render() {

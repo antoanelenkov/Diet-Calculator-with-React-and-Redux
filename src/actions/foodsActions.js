@@ -13,6 +13,10 @@ export function editFoodSuccess(food) {
     return { type: ActionTypes.EDIT_FOOD, food };
 }
 
+export function deleteFoodSuccess(id) {
+    return { type: ActionTypes.DELETE_FOOD, id };
+}
+
 export default {
     addFood: function (food) {
         return function (dispatch) {
@@ -21,6 +25,13 @@ export default {
                 .then(savedFood => {
                     food.id ? dispatch(editFoodSuccess(savedFood)) : dispatch(addFoodSuccess(savedFood));
                 });
+        }
+    },
+    delete: function(id){
+        return function(dispatch){
+            foodApi
+                .delete(id)
+                .then( () => dispatch(deleteFoodSuccess(id)));
         }
     },
     getAll: function () {

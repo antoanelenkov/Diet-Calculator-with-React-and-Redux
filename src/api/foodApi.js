@@ -36,7 +36,7 @@ export default (function () {
     api.delete = function (id) {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
-                delete api._find(id);
+                foods.splice(id-1,1);
                 _updateFoodsStorage();
                     
                 resolve();

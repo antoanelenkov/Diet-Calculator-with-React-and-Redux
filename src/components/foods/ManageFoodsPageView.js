@@ -16,10 +16,14 @@ export default (props) => {
                     <InputFormGroup type="number" id="fats" labelName="Fats" value={props.food.fats} handleOnChange={props.handleOnChange} />
                     <InputFormGroup type="number" id="proteins" labelName="Proteins" value={props.food.proteins} handleOnChange={props.handleOnChange} />
                     <InputFormGroup type="number" id="carbs" labelName="Carbs" value={props.food.carbs} handleOnChange={props.handleOnChange} />
-                    <SelectFormGroup id="calories-type-select" labelName="Type:" options={Object.values(CaloriesCountType)} />
+                    <SelectFormGroup 
+                        id="type" 
+                        labelName="Type:"
+                        options={Object.values(CaloriesCountType).map(type => {return { name: type, value:type}})}
+                        handleOnChange={props.handleOnChange} />
                     <ButtonFormGroup value="Add" handleOnSubmit={props.handleOnSubmit} />
                 </div>
             </div>
         </div>
-    );
+    )
 }

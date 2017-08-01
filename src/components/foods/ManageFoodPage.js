@@ -26,7 +26,7 @@ class ManageFoodPage extends React.Component {
 
     handleOnChange(event) {
         let food = Object.assign({}, this.state.food);
-        food[event.target.id] = event.target.value;
+        food[event.target.attributes['data-id'].value] = event.target.value;
 
         this.setState({ food });
     }

@@ -2,6 +2,23 @@
   font-family: "Cooper Black";
 }
 
+body{
+  margin:5px;
+}
+
+.footer{
+  padding-left: 10px;
+}
+
 .centered{
     text-align: center;
+}
+
+.home-wallpaper{
+  width:100%;
+  padding: 0 10%;
+}
+
+.technology-logo{
+  height: 30px;
 }

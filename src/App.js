@@ -3,6 +3,7 @@ import './App.css';
 
 import Routes from './Router';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
@@ -13,6 +14,8 @@ class App extends Component {
         <Navigation />
         <hr />
         <Routes />
+        <hr/>
+        <Footer/>
       </div>
     );
   }

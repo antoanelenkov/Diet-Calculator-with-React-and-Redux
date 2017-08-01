@@ -4,7 +4,7 @@ export default (props) => {
     return (
         <div>
             <h3 className="centered">Foods macronutient information</h3>
-            <div className="container">
+            <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                         <tr>

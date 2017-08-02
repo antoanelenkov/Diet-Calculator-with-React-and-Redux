@@ -9,11 +9,11 @@ namespace DietCalculator.Services
 {
     public class FoodsService : BaseService<Food>
     {
-        private readonly ConsumationsService consumationsService;
+        private readonly ConsummationsService consumationsService;
 
-        public FoodsService(ConsumationsService consumationService)
+        public FoodsService(ConsummationsService consummationService)
         {
-            this.consumationsService = consumationService;
+            this.consumationsService = consummationService;
         }
 
         public Food GetById(int id)
@@ -51,8 +51,8 @@ namespace DietCalculator.Services
 
             if (entity != null)
             {
-                var consumationsToDelete = this.DbContext.Consumations.Where(x => x.Food.Id == id);
-                foreach (var consum in entity.Consumations)
+                var consumationsToDelete = this.DbContext.Consummations.Where(x => x.Food.Id == id);
+                foreach (var consum in entity.Consummations)
                 {
                     await this.consumationsService.DeleteById(consum.Id, false);
                 }

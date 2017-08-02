@@ -12,7 +12,7 @@ namespace DietCalculator.Client.Console
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            System.Console.WriteLine(db.Consumations.Count());
+            System.Console.WriteLine(db.Consummations.Count());
         }
     }
 }

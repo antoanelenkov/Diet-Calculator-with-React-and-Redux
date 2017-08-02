@@ -60,7 +60,7 @@
     <Compile Include="Enums\CaloriesCountType.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />
     <Compile Include="Food.cs" />
-    <Compile Include="Consumation.cs" />
+    <Compile Include="Consummation.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

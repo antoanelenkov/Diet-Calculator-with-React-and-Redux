@@ -20,7 +20,7 @@ namespace DietCalculator.Data
 
         public IDbSet<Food> Foods { get; set; }
 
-        public IDbSet<Consumation> Consumations { get; set; }
+        public IDbSet<Consummation> Consummations { get; set; }
 
         public static ApplicationDbContext Create()
         {

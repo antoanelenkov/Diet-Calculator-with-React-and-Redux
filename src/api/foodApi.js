@@ -19,16 +19,16 @@ export default (function () {
                     id: id || ++idGenerator,
                     name,
                     type,
-                    calories,
-                    proteins,
-                    carbs,
-                    fats
+                    calories: calories*1,
+                    proteins: proteins*1,
+                    carbs: carbs*1,
+                    fats: fats*1
                 };
 
                 id ? (foods[id-1]=itemToSave) : foods.push(itemToSave);
                 _updateFoodsStorage();
             
-            resolve(itemToSave);
+                resolve(itemToSave);
             }, remoteCallDelay)
         });
     };

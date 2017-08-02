@@ -17,19 +17,42 @@ export default (function () {
     api.save = function (id, date, food, quantity) {
         return new Promise(function (resolve, reject) {
             setTimeout(() => {
-                const itemToSave = {
-                    id: id || ++idGenerator,
-                    date: dateFormatter.formatDate(date),
-                    food,
-                    quantity
-                };
+                let cosumationToSave = _isAddCommand(id) && _getFoodConsumation(food.id);
+                let isEditCommand = id || !!cosumationToSave;
 
-                id ? (consumation[id-1]=itemToSave) : consumation.push(itemToSave);
+                cosumationToSave 
+                    ? (cosumationToSave = _increaseQuantity(cosumationToSave)) 
+                    : (cosumationToSave = _addOrUpdate(id, date, food, quantity));
+
                 _updateConsumationStorage();
-            
-            resolve(itemToSave);
+                resolve({consumation: cosumationToSave, isEditCommand});
             }, remoteCallDelay)
         });
+
+        function _isAddCommand(id){
+            return !id;
+        }
+
+        function _increaseQuantity(consum){
+            const consumToUpdate = Object.assign({},consum);
+            consumToUpdate.quantity += quantity*1;
+            consumation[consumToUpdate.id-1] = consumToUpdate;
+
+            return consumToUpdate;
+        }
+
+        function _addOrUpdate(id, date, food, quantity){
+            const itemToSave = {
+                id: id || ++idGenerator,
+                date: dateFormatter.formatDate(date),
+                food,
+                quantity: quantity*1
+            };
+
+            id ? (consumation[id-1]=itemToSave) : consumation.push(itemToSave);
+            
+            return itemToSave;
+        }
     };
 
     api.delete = function (id) {
@@ -50,6 +73,10 @@ export default (function () {
     function _getConsumationFromStorage() {
         return (localStorage["consumation"] && JSON.parse(localStorage["consumation"])) || [];
     };
+
+    function _getFoodConsumation(id){
+        return consumation.find( consum => consum.food.id === id);
+    }
 
     return api;
 }());

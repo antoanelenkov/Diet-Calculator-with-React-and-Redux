@@ -22,8 +22,8 @@ export default {
         return function (dispatch) {
             consumationApi
                 .save(consumation.id, consumation.date, consumation.food, consumation.quantity)
-                .then(savedConsumation => {
-                    consumation.id ? dispatch(editSuccess(savedConsumation)) : dispatch(addSuccess(savedConsumation));
+                .then(response => {                   
+                    response.isEditCommand ? dispatch(editSuccess(response.consumation)) : dispatch(addSuccess(response.consumation));
                 });
         }
     },

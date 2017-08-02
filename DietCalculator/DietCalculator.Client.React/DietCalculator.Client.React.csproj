@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EB53893-267A-46AB-B089-20047AB8B388}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DietCalculator.Client.React</RootNamespace>
+    <AssemblyName>DietCalculator.Client.React</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\bootstrap.svg" />
+    <Content Include="public\favicon.ico" />
+    <Content Include="public\home-wallpaper.jpg" />
+    <Content Include="public\index.html" />
+    <Content Include="public\react.png" />
+    <Content Include="public\redux.png" />
+    <Content Include="src\actions\consumationActions.js" />
+    <Content Include="src\actions\foodsActions.js" />
+    <Content Include="src\api\consumationApi.js" />
+    <Content Include="src\api\foodApi.js" />
+    <Content Include="src\api\foods.js" />
+    <Content Include="src\App.css" />
+    <Content Include="src\App.js" />
+    <Content Include="src\App.test.js" />
+    <Content Include="src\components\consumation\ConsumationPage.js" />
+    <Content Include="src\components\consumation\ConsumationPageView.js" />
+    <Content Include="src\components\consumation\ManageConsumationPage.js" />
+    <Content Include="src\components\consumation\ManageConsumationPageView.js" />
+    <Content Include="src\components\error\ErrorPage.js" />
+    <Content Include="src\components\foods\FoodsPage.js" />
+    <Content Include="src\components\foods\FoodsPageView.js" />
+    <Content Include="src\components\foods\ManageFoodPage.js" />
+    <Content Include="src\components\foods\ManageFoodsPageView.js" />
+    <Content Include="src\components\Footer.js" />
+    <Content Include="src\components\home\HomePage.js" />
+    <Content Include="src\components\HtmlHelpers\ButtonFormGroup.js" />
+    <Content Include="src\components\HtmlHelpers\InputFormGroup.js" />
+    <Content Include="src\components\HtmlHelpers\SelectFormGroup.js" />
+    <Content Include="src\components\Navigation.js" />
+    <Content Include="src\constants\ActionTypes.js" />
+    <Content Include="src\constants\CaloriesCountType.js" />
+    <Content Include="src\containers\FoodsContainer.js" />
+    <Content Include="src\index.css" />
+    <Content Include="src\index.js" />
+    <Content Include="src\logo.svg" />
+    <Content Include="src\reducers\consumationReducer.js" />
+    <Content Include="src\reducers\foodsReducer.js" />
+    <Content Include="src\reducers\rootReducer.js" />
+    <Content Include="src\registerServiceWorker.js" />
+    <Content Include="src\Router.js" />
+    <Content Include="src\store\configureStore.js" />
+    <Content Include="src\utils\dateFormatter.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="node_modules\anser\lib\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\array-flatten\array-flatten.d.ts" />
+    <TypeScriptCompile Include="node_modules\camel-case\camel-case.d.ts" />
+    <TypeScriptCompile Include="node_modules\css-loader\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\cssnano\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\es6-promise\es6-promise.d.ts" />
+    <TypeScriptCompile Include="node_modules\hash.js\lib\hash.d.ts" />
+    <TypeScriptCompile Include="node_modules\iconv-lite\lib\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\ignore\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\lower-case\lower-case.d.ts" />
+    <TypeScriptCompile Include="node_modules\no-case\no-case.d.ts" />
+    <TypeScriptCompile Include="node_modules\param-case\param-case.d.ts" />
+    <TypeScriptCompile Include="node_modules\path-to-regexp\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\portfinder\lib\portfinder.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-calc\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-colormin\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-convert-values\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-discard-comments\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-discard-duplicates\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-discard-empty\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-discard-overridden\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-discard-unused\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-filter-plugins\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-merge-idents\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-merge-longhand\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-merge-rules\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-minify-font-values\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-minify-gradients\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-minify-params\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-minify-selectors\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-normalize-charset\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-normalize-url\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-ordered-values\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-reduce-idents\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-reduce-initial\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-reduce-transforms\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-svgo\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-unique-selectors\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss-zindex\node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\postcss\lib\postcss.d.ts" />
+    <TypeScriptCompile Include="node_modules\pretty-error\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\promise\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\redux-thunk\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\redux\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\schema-utils\node_modules\ajv\lib\ajv.d.ts" />
+    <TypeScriptCompile Include="node_modules\sw-toolbox\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\symbol-observable\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\throat\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\tweetnacl\nacl.d.ts" />
+    <TypeScriptCompile Include="node_modules\upper-case\upper-case.d.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -44,10 +44,10 @@ export default (props) => {
                                    <tr>
                                         <th>Total:</th>
                                         <th></th>
-                                        <th>{consumationByDate.totalProteins.toFixed(1)}({consumationByDate.percentProteins.toFixed(1)}%)</th>
-                                        <th>{consumationByDate.totalCarbs.toFixed(1)}({consumationByDate.percentCarbs.toFixed(1)}%)</th>
-                                        <th>{consumationByDate.totalFats.toFixed(1)}({consumationByDate.percentFats.toFixed(1)}%)</th>
-                                        <th>{consumationByDate.totalCalories.toFixed(1)}</th>
+                                        <th>{consumationByDate.totalProteins.toFixed(2)}({consumationByDate.percentProteins.toFixed(1)}%)</th>
+                                        <th>{consumationByDate.totalCarbs.toFixed(2)}({consumationByDate.percentCarbs.toFixed(1)}%)</th>
+                                        <th>{consumationByDate.totalFats.toFixed(2)}({consumationByDate.percentFats.toFixed(1)}%)</th>
+                                        <th>{consumationByDate.totalCalories.toFixed(2)}</th>
                                         <th></th>
                                         <th></th>
                                     </tr>

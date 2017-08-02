@@ -56,9 +56,10 @@ function _calculateTotalMacronutrients(consumationsByDay){
         consum.totalCarbs = _calculateTotalMacroPerItem(consum.consumations,'carbs');
         consum.totalFats = _calculateTotalMacroPerItem(consum.consumations,'fats');
         consum.totalCalories = _calculateTotalMacroPerItem(consum.consumations,'calories');
-        consum.percentProteins = ((consum.totalProteins*4 / consum.totalCalories)*100) || 0;
-        consum.percentCarbs = ((consum.totalCarbs*4 / consum.totalCalories)*100) || 0;
-        consum.percentFats = ((consum.totalFats*9 / consum.totalCalories)*100) || 0;
+        const totalCalculatedCalories = consum.totalProteins*4 + consum.totalCarbs*4 + consum.totalFats*9;
+        consum.percentProteins = ((consum.totalProteins*4 / totalCalculatedCalories)*100) || 0;
+        consum.percentCarbs = ((consum.totalCarbs*4 / totalCalculatedCalories)*100) || 0;
+        consum.percentFats = ((consum.totalFats*9 / totalCalculatedCalories)*100) || 0;
         return consum;
     })
 }

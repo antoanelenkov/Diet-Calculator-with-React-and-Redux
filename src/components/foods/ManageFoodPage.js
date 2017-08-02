@@ -37,7 +37,7 @@ class ManageFoodPage extends React.Component {
             this.props.history.push('/foods');
         }
         else{
-            this.setState({error:"Food should has name and calories"});
+            this.setState({error:"Fields \"Name\" and \"Calories\" are required!"});
         }
     }
 

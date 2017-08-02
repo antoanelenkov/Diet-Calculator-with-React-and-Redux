@@ -9,9 +9,9 @@ export default (props) => {
     return (
         <div>
             <h3 className="centered">Add new food</h3>
-            {props.error && <div className="alert alert-danger">{props.error}</div>}
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
+                    {props.error && <div className="alert alert-danger">{props.error}</div>}
                     <InputFormGroup type="text" id="name" labelName="Name" value={props.food.name} handleOnChange={props.handleOnChange} />
                     <InputFormGroup type="number" id="calories" labelName="Calories" value={props.food.calories} handleOnChange={props.handleOnChange} />
                     <InputFormGroup type="number" id="fats" labelName="Fats" value={props.food.fats} handleOnChange={props.handleOnChange} />

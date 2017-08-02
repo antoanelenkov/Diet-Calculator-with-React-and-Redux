@@ -37,6 +37,18 @@ export default (props) => {
                                     })}
 
                                 </tbody>
+                                <tfoot>
+                                   <tr>
+                                        <th>Total:</th>
+                                        <th></th>
+                                        <th>{consumationByDate.totalProteins}</th>
+                                        <th>{consumationByDate.totalCarbs}</th>
+                                        <th>{consumationByDate.totalFats}</th>
+                                        <th>{consumationByDate.totalCalories}</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                               </tfoot>
                             </table>
                         </div>
                         <hr/>

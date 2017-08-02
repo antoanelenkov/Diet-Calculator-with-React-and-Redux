@@ -20,15 +20,7 @@ class ConsumationPage extends React.Component {
     }
 
     render() {
-        const groupedByDateConsumationsObj = _.groupBy(this.props.consumations, 'date');
-        const groupedByDateConsumationsArr = [];
-        let i = 0;
-
-        for (var date in groupedByDateConsumationsObj) {
-            groupedByDateConsumationsArr[i++] = { date, consumations: groupedByDateConsumationsObj[date] }
-        }
-
-        return (<ConsumationPageView consumationsInfo={groupedByDateConsumationsArr} handleOnClick={this.handleOnClick} />);
+        return (<ConsumationPageView consumationsInfo={_formatConsumationData(this.props.consumations)} handleOnClick={this.handleOnClick} />);
     }
 }
 
@@ -42,6 +34,28 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(consumationActions, dispatch)
     };
+}
+
+function _formatConsumationData(consumations){
+    const groupedByDateConsumationsObj = _.groupBy(consumations, 'date');
+    const groupedByDateConsumationsArr = [];
+    let i = 0;
+
+    for (var date in groupedByDateConsumationsObj) {
+        groupedByDateConsumationsArr[i++] = { date, consumations: groupedByDateConsumationsObj[date] }
+    }
+
+    return _calculateTotalMacronutrients(groupedByDateConsumationsArr);
+}
+
+function _calculateTotalMacronutrients(consumationsByDay){
+    return consumationsByDay.map(consum=>{
+        consum.totalProteins = consum.consumations.reduce((accum,current)=>{return accum.proteins + current.proteins});
+        consum.totalCarbs = consum.consumations.reduce((accum,current)=>{return accum.carbs + current.carbs});
+        consum.totalFats = consum.consumations.reduce((accum,current)=>{return accum.fats + current.fats});
+        consum.totalCalories = consum.consumations.reduce((accum,current)=>{return accum.calories + current.calories});
+        return consum;
+    })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConsumationPage);

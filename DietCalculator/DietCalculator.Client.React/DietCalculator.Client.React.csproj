@@ -86,59 +86,6 @@
     <Content Include="src\store\configureStore.js" />
     <Content Include="src\utils\dateFormatter.js" />
   </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="node_modules\ajv\lib\ajv.d.ts" />
-    <TypeScriptCompile Include="node_modules\anser\lib\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\array-flatten\array-flatten.d.ts" />
-    <TypeScriptCompile Include="node_modules\camel-case\camel-case.d.ts" />
-    <TypeScriptCompile Include="node_modules\css-loader\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\cssnano\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\es6-promise\es6-promise.d.ts" />
-    <TypeScriptCompile Include="node_modules\hash.js\lib\hash.d.ts" />
-    <TypeScriptCompile Include="node_modules\iconv-lite\lib\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\ignore\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\lower-case\lower-case.d.ts" />
-    <TypeScriptCompile Include="node_modules\no-case\no-case.d.ts" />
-    <TypeScriptCompile Include="node_modules\param-case\param-case.d.ts" />
-    <TypeScriptCompile Include="node_modules\path-to-regexp\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\portfinder\lib\portfinder.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-calc\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-colormin\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-convert-values\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-discard-comments\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-discard-duplicates\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-discard-empty\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-discard-overridden\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-discard-unused\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-filter-plugins\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-merge-idents\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-merge-longhand\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-merge-rules\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-minify-font-values\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-minify-gradients\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-minify-params\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-minify-selectors\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-normalize-charset\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-normalize-url\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-ordered-values\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-reduce-idents\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-reduce-initial\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-reduce-transforms\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-svgo\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-unique-selectors\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss-zindex\node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\postcss\lib\postcss.d.ts" />
-    <TypeScriptCompile Include="node_modules\pretty-error\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\promise\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\redux-thunk\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\redux\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\schema-utils\node_modules\ajv\lib\ajv.d.ts" />
-    <TypeScriptCompile Include="node_modules\sw-toolbox\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\symbol-observable\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\throat\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\tweetnacl\nacl.d.ts" />
-    <TypeScriptCompile Include="node_modules\upper-case\upper-case.d.ts" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

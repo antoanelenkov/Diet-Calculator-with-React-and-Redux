@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietCalculator.Data", "Diet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietCalculator.Client.React", "DietCalculator.Client.React\DietCalculator.Client.React.csproj", "{0EB53893-267A-46AB-B089-20047AB8B388}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietCalculator.Client.Console", "DietCalculator.Client.Console\DietCalculator.Client.Console.csproj", "{A7B547EE-4258-4A05-86BB-BC9E91D47447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietCalculator.Services", "DietCalculator.Services\DietCalculator.Services.csproj", "{8D4697C5-C904-4D48-9B6D-011F630B17FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0EB53893-267A-46AB-B089-20047AB8B388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EB53893-267A-46AB-B089-20047AB8B388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EB53893-267A-46AB-B089-20047AB8B388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B547EE-4258-4A05-86BB-BC9E91D47447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B547EE-4258-4A05-86BB-BC9E91D47447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B547EE-4258-4A05-86BB-BC9E91D47447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B547EE-4258-4A05-86BB-BC9E91D47447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4697C5-C904-4D48-9B6D-011F630B17FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4697C5-C904-4D48-9B6D-011F630B17FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4697C5-C904-4D48-9B6D-011F630B17FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4697C5-C904-4D48-9B6D-011F630B17FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

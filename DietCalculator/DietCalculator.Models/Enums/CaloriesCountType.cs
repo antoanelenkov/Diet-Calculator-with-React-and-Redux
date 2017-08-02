@@ -2,7 +2,7 @@
 {
     public enum CaloriesCountType
     {
-        PerHunderGRams:0,
-        PerItem:1
+        PerHunderGRams = 0,
+        PerItem = 1
     }
 }

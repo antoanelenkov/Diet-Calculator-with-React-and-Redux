@@ -13,9 +13,11 @@ namespace DietCalculator.Models
 
         public int Quantity { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public virtual User User { get; set; }
+
+        public int FoodId { get; set; }
 
         public virtual Food Food { get; set; }
 

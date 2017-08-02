@@ -9,7 +9,7 @@ namespace DietCalculator.Services
 {
     public abstract class BaseService<T> where T : class
     {
-        public BaseService()
+        public BaseService(ApplicationDbContext dbContext)
         {
             this.DbContext = new ApplicationDbContext();
         }

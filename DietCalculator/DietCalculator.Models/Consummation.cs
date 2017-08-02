@@ -10,8 +10,6 @@ namespace DietCalculator.Models
 {
     public class Consummation : IDeletableEntity
     {
-        private int fats;
-
         public int Id { get; set; }
 
         [Required]

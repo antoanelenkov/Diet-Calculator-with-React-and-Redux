@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using DietCalculator.Client.Models;
+using DietCalculator.Data;
 
 namespace DietCalculator.Client
 {

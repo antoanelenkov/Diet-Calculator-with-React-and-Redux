@@ -10,6 +10,13 @@ namespace DietCalculator.Models
 {
     public class Food : IDeletableEntity
     {
+        private ICollection<Consummation> consummations;
+
+        public Food()
+        {
+            this.consummations = new HashSet<Consummation>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -25,8 +32,12 @@ namespace DietCalculator.Models
         public int Carbs { get; set; }
 
         public CaloriesCountType CaloriesCountType { get; set; }
-
-        public virtual IEnumerable<Consummation>  Consummations { get; set; }
+        
+        public virtual ICollection<Consummation> Consummations
+        {
+            get { return this.consummations; }
+            set { this.consummations = value; }
+        }
 
         public DateTime? DeletedOn { get; set; }
 

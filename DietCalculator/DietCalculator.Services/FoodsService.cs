@@ -1,4 +1,5 @@
-﻿using DietCalculator.Models;
+﻿using DietCalculator.Data;
+using DietCalculator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,8 @@ namespace DietCalculator.Services
 {
     public class FoodsService : BaseService<Food>
     {
-        private readonly ConsummationsService consumationsService;
-
-        public FoodsService(ConsummationsService consummationService)
+        public FoodsService(ApplicationDbContext dbContext) : base(dbContext)
         {
-            this.consumationsService = consummationService;
         }
 
         public Food GetById(int id)
@@ -54,7 +52,7 @@ namespace DietCalculator.Services
                 var consumationsToDelete = this.DbContext.Consummations.Where(x => x.Food.Id == id);
                 foreach (var consum in entity.Consummations)
                 {
-                    await this.consumationsService.DeleteById(consum.Id, false);
+                    this.DbContext.Consummations.Remove(consum);
                 }
 
                 this.DbContext.Foods.Remove(entity);

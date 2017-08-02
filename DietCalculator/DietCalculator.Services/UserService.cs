@@ -10,6 +10,10 @@ namespace DietCalculator.Services
 {
     public class UserService : BaseService<User>
     {
+        public UserService(ApplicationDbContext dbContext) : base(dbContext)
+        {
+        }
+
         public User GetUserById(string id)
         {
             return this.DbContext.Users.FirstOrDefault(x => x.Id == id);

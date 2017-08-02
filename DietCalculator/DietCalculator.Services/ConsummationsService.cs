@@ -1,4 +1,5 @@
-﻿using DietCalculator.Models;
+﻿using DietCalculator.Data;
+using DietCalculator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DietCalculator.Services
     {
         private readonly FoodsService foodsService;
 
-        public ConsummationsService(FoodsService foodsService)
+        public ConsummationsService(ApplicationDbContext dbContext, FoodsService foodsService) : base(dbContext)
         {
             this.foodsService = foodsService;
         }

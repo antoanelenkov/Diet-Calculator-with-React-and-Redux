@@ -21,7 +21,7 @@ class ConsumationPage extends React.Component {
 
     render() {
         return (<ConsumationPageView consumationsInfo={_formatConsumationData(this.props.consumations)} handleOnClick={this.handleOnClick} />);
-    }
+        }
 }
 
 function mapStateToProps(state, ownProps) {
@@ -50,12 +50,24 @@ function _formatConsumationData(consumations){
 
 function _calculateTotalMacronutrients(consumationsByDay){
     return consumationsByDay.map(consum=>{
-        consum.totalProteins = consum.consumations.reduce((accum,current)=>{return accum.proteins + current.proteins});
-        consum.totalCarbs = consum.consumations.reduce((accum,current)=>{return accum.carbs + current.carbs});
-        consum.totalFats = consum.consumations.reduce((accum,current)=>{return accum.fats + current.fats});
-        consum.totalCalories = consum.consumations.reduce((accum,current)=>{return accum.calories + current.calories});
+        consum.totalProteins
+
+        consum.totalProteins = _calculateTotalMacroPerItem(consum.consumations,'proteins');
+        consum.totalCarbs = _calculateTotalMacroPerItem(consum.consumations,'carbs');
+        consum.totalFats = _calculateTotalMacroPerItem(consum.consumations,'fats');
+        consum.totalCalories = _calculateTotalMacroPerItem(consum.consumations,'calories');
+        consum.percentProteins = ((consum.totalProteins*4 / consum.totalCalories)*100) || 0;
+        consum.percentCarbs = ((consum.totalCarbs*4 / consum.totalCalories)*100) || 0;
+        consum.percentFats = ((consum.totalFats*9 / consum.totalCalories)*100) || 0;
         return consum;
     })
+}
+
+function _calculateTotalMacroPerItem(consumations,consumationPropName){
+    let macroQuantity = 0;
+
+    consumations.forEach((x)=>{ macroQuantity+=x[consumationPropName]})
+    return  macroQuantity || 0;
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConsumationPage);

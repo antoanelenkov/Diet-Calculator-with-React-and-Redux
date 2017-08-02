@@ -32,13 +32,22 @@ class ManageFoodPage extends React.Component {
     }
 
     handleOnSubmit() {
-        this.props.actions.addFood(this.state.food);
-        this.props.history.push('/foods');
+        if(this.fieldsAreValid(this.state.food)){
+            this.props.actions.addFood(this.state.food);
+            this.props.history.push('/foods');
+        }
+        else{
+            this.setState({error:"Food should has name and calories"});
+        }
+    }
+
+    fieldsAreValid(food){
+        return food.name && food.calories;
     }
 
     render() {
-        return (<ManageFoodsPageView food={this.state.food} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />);
-    }
+        return (<ManageFoodsPageView food={this.state.food} error={this.state.error} handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />);
+        }
 }
 
 function mapStateToProps(state, ownProps) {

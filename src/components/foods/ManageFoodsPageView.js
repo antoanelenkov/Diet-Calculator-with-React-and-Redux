@@ -9,6 +9,7 @@ export default (props) => {
     return (
         <div>
             <h3 className="centered">Add new food</h3>
+            {props.error && <div className="alert alert-danger">{props.error}</div>}
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
                     <InputFormGroup type="text" id="name" labelName="Name" value={props.food.name} handleOnChange={props.handleOnChange} />
@@ -20,10 +21,10 @@ export default (props) => {
                         id="type" 
                         labelName="Type:"
                         options={Object.values(CaloriesCountType).map(type => {return { name: type, value:type}})}
-                        handleOnChange={props.handleOnChange} />
+                handleOnChange={props.handleOnChange} />
                     <ButtonFormGroup value="Add" handleOnSubmit={props.handleOnSubmit} />
                 </div>
             </div>
         </div>
     )
-}
+                }

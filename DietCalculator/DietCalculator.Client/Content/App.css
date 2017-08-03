@@ -1,0 +1,27 @@
+body{
+  margin:5px;
+}
+
+.footer{
+  padding-bottom: 10px;
+  margin: auto;
+  width:200px;
+}
+
+.centered{
+    text-align: center;
+}
+
+.home-wallpaper{
+  width:100%;
+  padding: 0 10%;
+}
+
+.technology-logo{
+  height: 60px;
+  margin-left:5px;
+}
+
+*{
+  font-family: "Cooper Black";
+}

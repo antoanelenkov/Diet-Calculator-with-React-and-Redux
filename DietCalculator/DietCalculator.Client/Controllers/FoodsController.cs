@@ -14,12 +14,13 @@ namespace DietCalculator.Client.Controllers
     {
         private readonly FoodsService foodsService;
 
-        public FoodsController(FoodsService foodsService)
-        {
-            this.foodsService = foodsService;
-        }
+        // TODO: Fix dependency injection to work
+        //public FoodsController(FoodsService foodsService)
+        //{
+        //    this.foodsService = foodsService;
+        //}
 
-        // TODO: Dependency injection does not work
+
         public FoodsController()
         {
             this.foodsService = new FoodsService(new ApplicationDbContext());

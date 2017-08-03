@@ -12,9 +12,9 @@ namespace GoSport.Client.App_Start
     using Ninject.Web.Common;
 
     using System.Data.Entity;
-    using DietCalculator.Client.Models;
     using DietCalculator.Services;
     using DietCalculator.Data;
+    using System.Diagnostics;
 
     public static class NinjectWebCommon
     {
@@ -67,12 +67,12 @@ namespace GoSport.Client.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<DbContext>().To<ApplicationDbContext>().InRequestScope();
-            kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>().InRequestScope();
+            kernel.Bind<ApplicationDbContext>().ToSelf();
 
             //Models Services
-            kernel.Bind<FoodsService>().To<FoodsService>();
-            kernel.Bind<ConsummationsService>().To<ConsummationsService>();
-            kernel.Bind<UserService>().To<UserService>();
+            kernel.Bind<FoodsService>().ToSelf();
+            kernel.Bind<ConsummationsService>().ToSelf();
+            kernel.Bind<UserService>().ToSelf();
         }
     }
 }

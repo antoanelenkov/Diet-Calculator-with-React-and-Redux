@@ -14,8 +14,8 @@ namespace DietCalculator.Client
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Api",
-                url: "",
+                name: "Calculator",
+                url: "calculator/{*pathInfo}",
                 defaults: new { controller = "Api", action = "Index" }
             );
 

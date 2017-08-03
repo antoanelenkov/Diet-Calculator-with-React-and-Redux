@@ -9,14 +9,14 @@ import ConsumationPage from './components/consumation/ConsumationPage'
 
 const Routes = () => (
     <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/home' component={HomePage} />
-        <Route path='/foods' component={FoodsPage} />
-        <Route path='/manage-food/:id' component={ManageFoodPage} />
-        <Route path='/manage-food' component={ManageFoodPage} />
-        <Route path='/manage-consumation/:id' component={ManageConsumationPage} />
-        <Route path='/manage-consumation/' component={ManageConsumationPage} />
-        <Route path='/consumations' component={ConsumationPage} />
+        <Route exact path='/calculator/' component={HomePage} />
+        <Route path='/calculator/home' component={HomePage} />
+        <Route path='/calculator/foods' component={FoodsPage} />
+        <Route path='/calculator/manage-food/:id' component={ManageFoodPage} />
+        <Route path='/calculator/manage-food' component={ManageFoodPage} />
+        <Route path='/calculator/manage-consumation/:id' component={ManageConsumationPage} />
+        <Route path='/calculator/manage-consumation/' component={ManageConsumationPage} />
+        <Route path='/calculator/consumations' component={ConsumationPage} />
         <Route component={ErrorPage} />
     </Switch>
 )

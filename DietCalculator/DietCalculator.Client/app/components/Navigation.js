@@ -6,15 +6,15 @@ class Navigation extends React.Component {
         return (
             <div className="container-fluid">
                 <nav>
-                    <Link to="/">Home</Link>
+                    <Link to="/calculator">Home</Link>
                     {" | "}
-                    <Link to="/foods">Foods</Link>
+                    <Link to="/calculator/foods">Foods</Link>
                     {" | "}
-                    <Link to="/manage-food">Add new food</Link>
+                    <Link to="/calculator/manage-food">Add new food</Link>
                     {" | "}
-                    <Link to="/consumations">Daily consumation</Link>
+                    <Link to="/calculator/consumations">Daily consumation</Link>
                     {" | "}
-                    <Link to="/manage-consumation">Add daily consumation</Link>
+                    <Link to="/calculator/manage-consumation">Add daily consumation</Link>
                 </nav>
             </div>
         );

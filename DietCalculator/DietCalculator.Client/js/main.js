@@ -182,14 +182,14 @@ webpackJsonp([0],{
 	    return _react2.default.createElement(
 	        _reactRouterDom.Switch,
 	        null,
-	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomePage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/home', component: _HomePage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/foods', component: _FoodsPage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manage-food/:id', component: _ManageFoodPage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manage-food', component: _ManageFoodPage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manage-consumation/:id', component: _ManageConsumationPage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manage-consumation/', component: _ManageConsumationPage2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/consumations', component: _ConsumationPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/calculator/', component: _HomePage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/home', component: _HomePage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/foods', component: _FoodsPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/manage-food/:id', component: _ManageFoodPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/manage-food', component: _ManageFoodPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/manage-consumation/:id', component: _ManageConsumationPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/manage-consumation/', component: _ManageConsumationPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calculator/consumations', component: _ConsumationPage2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { component: _ErrorPage2.default })
 	    );
 	};
@@ -1790,31 +1790,31 @@ webpackJsonp([0],{
 	                    null,
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
-	                        { to: '/' },
+	                        { to: '/calculator' },
 	                        'Home'
 	                    ),
 	                    " | ",
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
-	                        { to: '/foods' },
+	                        { to: '/calculator/foods' },
 	                        'Foods'
 	                    ),
 	                    " | ",
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
-	                        { to: '/manage-food' },
+	                        { to: '/calculator/manage-food' },
 	                        'Add new food'
 	                    ),
 	                    " | ",
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
-	                        { to: '/consumations' },
+	                        { to: '/calculator/consumations' },
 	                        'Daily consumation'
 	                    ),
 	                    " | ",
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
-	                        { to: '/manage-consumation' },
+	                        { to: '/calculator/manage-consumation' },
 	                        'Add daily consumation'
 	                    )
 	                )

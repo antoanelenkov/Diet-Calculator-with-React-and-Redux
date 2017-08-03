@@ -1,4 +1,5 @@
 ﻿using DietCalculator.Models.Contracts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,7 +33,8 @@ namespace DietCalculator.Models
         public int Carbs { get; set; }
 
         public CaloriesCountType CaloriesCountType { get; set; }
-        
+
+        [JsonIgnore] //solves circular dependencies problem when serializing to json
         public virtual ICollection<Consummation> Consummations
         {
             get { return this.consummations; }

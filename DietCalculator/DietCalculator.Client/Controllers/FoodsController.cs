@@ -1,6 +1,7 @@
 ﻿using DietCalculator.Client.Models;
 using DietCalculator.Data;
 using DietCalculator.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace DietCalculator.Client.Controllers
 
         public JsonResult GetAll()
         {
-            return Json(this.foodsService.GetAll().ToList(), JsonRequestBehavior.AllowGet);
+            return Json(JsonConvert.SerializeObject(this.foodsService.GetAll().ToList()), JsonRequestBehavior.AllowGet);
         }
     }
 }

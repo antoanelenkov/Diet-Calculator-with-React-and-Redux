@@ -185,6 +185,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Common\JsonSerializerSettingsHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -199,6 +200,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\api\foodApi.js" />
+    <Content Include="app\api\serverRequestApi.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\bootstrap.svg" />
@@ -232,7 +235,7 @@
     <Content Include="app\actions\consumationActions.js" />
     <Content Include="app\actions\foodsActions.js" />
     <Content Include="app\api\consumationApi.js" />
-    <Content Include="app\api\foodApi.js" />
+    <Content Include="app\api\foodApi.localstorage.js" />
     <Content Include="app\api\foods.js" />
     <Content Include="app\App.js" />
     <Content Include="app\App.test.js" />

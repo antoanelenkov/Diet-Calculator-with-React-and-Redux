@@ -1,7 +1,9 @@
-﻿using DietCalculator.Client.Models;
+﻿using DietCalculator.Client.Common;
+using DietCalculator.Client.Models;
 using DietCalculator.Data;
 using DietCalculator.Services;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ using System.Web.Mvc;
 
 namespace DietCalculator.Client.Controllers
 {
-    public class FoodsController  : Controller
+    public class FoodsController  : BaseController
     {
         private readonly FoodsService foodsService;
 
@@ -29,7 +31,11 @@ namespace DietCalculator.Client.Controllers
 
         public JsonResult GetAll()
         {
-            return Json(JsonConvert.SerializeObject(this.foodsService.GetAll().ToList()), JsonRequestBehavior.AllowGet);
+            return Json(JsonConvert.SerializeObject(
+                    this.foodsService.GetAll().ToList(),
+                    Formatting.Indented, 
+                    JsonSerializerSettingsHelper.GetSettings()), 
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

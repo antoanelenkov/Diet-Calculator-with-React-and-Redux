@@ -1,5 +1,3 @@
-﻿import serverApi from './serverRequestApi';
-
 export default (function () {
     const api = {};
 
@@ -10,9 +8,7 @@ export default (function () {
 
     api.getAll = function () {
         return new Promise(function (resolve, reject) {
-            serverApi
-                .get('/foods/getall')
-                .then(foods => resolve(foods));
+            setTimeout(() => { resolve([...foods]) }, remoteCallDelay)
         });
     };
 

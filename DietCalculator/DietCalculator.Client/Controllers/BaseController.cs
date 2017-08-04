@@ -31,6 +31,11 @@ namespace DietCalculator.Client.Controllers
             if (!ModelState.IsValid) throw new HttpException("Invalid parameters passed");
         }
 
+        protected void HandleInvalidOperation()
+        {
+            throw new HttpException("Server error.");
+        }
+
         protected IMapper Mapper
         {
             get

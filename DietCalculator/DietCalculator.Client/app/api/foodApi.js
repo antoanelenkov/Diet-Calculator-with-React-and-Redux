@@ -36,12 +36,9 @@ export default (function () {
 
     api.delete = function (id) {
         return new Promise(function (resolve, reject) {
-            setTimeout(() => {
-                foods = foods.filter(food => food.id !== id)
-                _updateFoodsStorage();
-                    
-                resolve();
-            }, remoteCallDelay)
+            serverApi
+                .post('/foods/delete', {id})
+                .then(res => resolve(res));
         });
     };
 

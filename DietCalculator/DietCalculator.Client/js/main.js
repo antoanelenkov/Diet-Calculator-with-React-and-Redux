@@ -460,14 +460,9 @@ webpackJsonp([0],{
 	
 	    api.delete = function (id) {
 	        return new Promise(function (resolve, reject) {
-	            setTimeout(function () {
-	                foods = foods.filter(function (food) {
-	                    return food.id !== id;
-	                });
-	                _updateFoodsStorage();
-	
-	                resolve();
-	            }, remoteCallDelay);
+	            _serverRequestApi2.default.post('/foods/delete', { id: id }).then(function (res) {
+	                return resolve(res);
+	            });
 	        });
 	    };
 	

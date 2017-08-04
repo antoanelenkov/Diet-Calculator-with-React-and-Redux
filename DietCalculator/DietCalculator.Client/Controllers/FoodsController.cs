@@ -38,7 +38,27 @@ namespace DietCalculator.Client.Controllers
 
             var entityToSave = Mapper.Map<Food>(model);
             var savedEntity = await this.foodsService.SaveAsync(entityToSave);
-            return savedEntity != null ? this.ConvertToJSON(Mapper.Map<FoodsViewModel>(savedEntity)) : null;
+            if (savedEntity != null)
+            {
+                return this.ConvertToJSON(Mapper.Map<FoodsViewModel>(savedEntity));
+            }
+
+            this.HandleInvalidOperation();
+            return null;
+        }
+
+        public async Task<JsonResult> Delete(int id)
+        {
+            this.HandleModelState();
+
+            var deltedEntity = await this.foodsService.DeleteAsync(id);
+            if(deltedEntity != null)
+            {
+                return this.ConvertToJSON(deltedEntity);
+            }
+
+            this.HandleInvalidOperation();
+            return null;
         }
     }
 }

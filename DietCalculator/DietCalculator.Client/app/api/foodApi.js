@@ -1,4 +1,5 @@
 ﻿import serverApi from './serverRequestApi';
+import * as CaloriesCountType from '../constants/CaloriesCountType';
 
 export default (function () {
     const api = {};
@@ -18,22 +19,18 @@ export default (function () {
 
     api.save = function (id, name, type, calories, proteins, carbs, fats) {
         return new Promise(function (resolve, reject) {
-            setTimeout(() => {
-                const itemToSave = {
-                    id: id || ++idGenerator,
-                    name,
-                    type,
-                    calories: calories*1,
-                    proteins: proteins*1,
-                    carbs: carbs*1,
-                    fats: fats*1
-                };
+            const itemToSave = {
+                name,
+                type: CaloriesCountType.PER_HUNDRED_GRAMS ? 0 : 1,
+                calories: calories*1,
+                proteins: proteins*1, 
+                carbs: carbs*1,
+                fats: fats*1
+            };
 
-                id ? (foods[id-1]=itemToSave) : foods.push(itemToSave);
-                _updateFoodsStorage();
-            
-                resolve(itemToSave);
-            }, remoteCallDelay)
+            serverApi
+                .post('/foods/save', itemToSave)
+                .then(food =>{ console.log(food); resolve(food)});
         });
     };
 

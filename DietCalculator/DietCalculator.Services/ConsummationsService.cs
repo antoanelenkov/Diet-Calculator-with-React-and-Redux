@@ -17,11 +17,11 @@ namespace DietCalculator.Services
             this.foodsService = foodsService;
         }
 
-        public async Task<Consummation> Add(Consummation entity)
+        public async Task<Consummation> SaveAsync(Consummation entity)
         {
             var consummationWithThisFood = this.foodsService
                 .GetById(entity.Food.Id).Consummations
-                .FirstOrDefault(x => x.Food.Id == entity.Food.Id && x.DateCreated.Date == entity.DateCreated.Date);
+                .FirstOrDefault(x => x.Food.Id == entity.Food.Id && x.DateCreated.Date == entity.DateCreated.Date && x.User.Id == entity.User.Id);
 
             // If there is already a consumation with this food for this day, there is no need for new record - increase 
             // the amount of the existing record
@@ -37,7 +37,7 @@ namespace DietCalculator.Services
             return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
         }
 
-        public async Task<Consummation> DeleteById(int id, bool withSave = true)
+        public async Task<Consummation> DeleteAsync(int id, bool withSave = true)
         {
             var entity = this.GetById(id);
 

@@ -18,5 +18,22 @@ export default (function () {
         });
     };
 
+    api.post = function (relativeUrl,data) {
+        return new Promise(function (resolve, reject) {
+
+            $.ajax({
+                type:'POST',
+                data : data,
+                url: window.location.origin+relativeUrl,
+                success: function(data, textStatus){
+                    resolve(JSON.parse(data));
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    throw errorThrown;
+                }
+            });
+        });
+    };
+
     return api;
 }());

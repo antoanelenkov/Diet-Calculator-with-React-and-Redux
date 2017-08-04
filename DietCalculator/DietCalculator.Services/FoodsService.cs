@@ -19,31 +19,12 @@ namespace DietCalculator.Services
             return this.DbContext.Foods.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<Food> Add(Food food)
+        public async Task<Food> SaveAsync(Food food)
         {
-            this.DbContext.Foods.Add(food);
-            return await this.DbContext.SaveChangesAsync() > 0 ? food : null;
+            return food.Id == 0 ? await this.AddAsync(food) : await this.UpdateAsync(food);
         }
 
-        public async Task<Food> Update(Food food)
-        {
-            var entity = this.GetById(food.Id);
-
-            if (entity != null)
-            {
-                entity.Name = food.Name;
-                entity.Calories = food.Calories;
-                entity.Proteins = food.Proteins;
-                entity.Carbs = food.Carbs;
-                entity.Fats = food.Fats;
-
-                return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
-            }
-
-            return null;
-        }
-
-        public async Task<Food> Delete(int id)
+        public async Task<Food> DeleteAsync(int id)
         {
             var entity = this.GetById(id);
 
@@ -56,6 +37,30 @@ namespace DietCalculator.Services
                 }
 
                 this.DbContext.Foods.Remove(entity);
+
+                return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
+            }
+
+            return null;
+        }
+
+        private async Task<Food> AddAsync(Food food)
+        {
+            this.DbContext.Foods.Add(food);
+            return await this.DbContext.SaveChangesAsync() > 0 ? food : null;
+        }
+
+        private async Task<Food> UpdateAsync(Food food)
+        {
+            var entity = this.GetById(food.Id);
+
+            if (entity != null)
+            {
+                entity.Name = food.Name;
+                entity.Calories = food.Calories;
+                entity.Proteins = food.Proteins;
+                entity.Carbs = food.Carbs;
+                entity.Fats = food.Fats;
 
                 return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
             }

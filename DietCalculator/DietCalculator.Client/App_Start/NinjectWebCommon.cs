@@ -1,7 +1,7 @@
-﻿[assembly: WebActivator.PreApplicationStartMethod(typeof(GoSport.Client.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(GoSport.Client.App_Start.NinjectWebCommon), "Stop")]
+﻿[assembly: WebActivator.PreApplicationStartMethod(typeof(DietCalculator.Client.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(DietCalculator.Client.App_Start.NinjectWebCommon), "Stop")]
 
-namespace GoSport.Client.App_Start
+namespace DietCalculator.Client.App_Start
 {
     using System;
     using System.Web;

@@ -3,13 +3,11 @@ using DietCalculator.Client.Models;
 using DietCalculator.Data;
 using DietCalculator.Services;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
+using AutoMapper;
+using DietCalculator.Models;
+using System.Threading.Tasks;
 
 namespace DietCalculator.Client.Controllers
 {
@@ -31,11 +29,16 @@ namespace DietCalculator.Client.Controllers
 
         public JsonResult GetAll()
         {
-            return Json(JsonConvert.SerializeObject(
-                    this.foodsService.GetAll().ToList(),
-                    Formatting.Indented, 
-                    JsonSerializerSettingsHelper.GetSettings()), 
-                JsonRequestBehavior.AllowGet);
+            return this.ConvertToJSON(this.foodsService.GetAll().ToList());
+        }
+
+        public async Task<JsonResult> Save(FoodsViewModel model)
+        {
+            this.HandleModelState();
+
+            var entityToSave = Mapper.Map<Food>(model);
+            var savedEntity = await this.foodsService.SaveAsync(entityToSave);
+            return savedEntity != null ? this.ConvertToJSON(Mapper.Map<FoodsViewModel>(savedEntity)) : null;
         }
     }
 }

@@ -20,6 +20,7 @@ export default (function () {
     api.save = function (id, name, type, calories, proteins, carbs, fats) {
         return new Promise(function (resolve, reject) {
             const itemToSave = {
+                id:id || 0,
                 name,
                 type: CaloriesCountType.PER_HUNDRED_GRAMS ? 0 : 1,
                 calories: calories*1,

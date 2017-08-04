@@ -444,6 +444,7 @@ webpackJsonp([0],{
 	    api.save = function (id, name, type, calories, proteins, carbs, fats) {
 	        return new Promise(function (resolve, reject) {
 	            var itemToSave = {
+	                id: id || 0,
 	                name: name,
 	                type: CaloriesCountType.PER_HUNDRED_GRAMS ? 0 : 1,
 	                calories: calories * 1,

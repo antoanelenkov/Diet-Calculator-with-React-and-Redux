@@ -30,10 +30,9 @@ namespace DietCalculator.Services
 
             if (entity != null)
             {
-                var consumationsToDelete = this.DbContext.Consummations.Where(x => x.Food.Id == id);
-                foreach (var consum in entity.Consummations)
+                foreach (var item in entity.Consummations.ToList())
                 {
-                    this.DbContext.Consummations.Remove(consum);
+                    this.DbContext.Consummations.Remove(item);
                 }
 
                 this.DbContext.Foods.Remove(entity);

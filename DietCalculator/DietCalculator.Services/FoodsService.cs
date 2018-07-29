@@ -21,7 +21,7 @@ namespace DietCalculator.Services
 
         public async Task<Food> SaveAsync(Food food)
         {
-            return food.Id == 0 ? await this.AddAsync(food) : await this.UpdateAsync(food);
+            return food.Id == 0 ? await this.AddAsync(food) : await this.UpdateAsync(food).ConfigureAwait(false);
         }
 
         public async Task<Food> DeleteAsync(int id)
@@ -37,7 +37,7 @@ namespace DietCalculator.Services
 
                 this.DbContext.Foods.Remove(entity);
 
-                return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
+                return await this.DbContext.SaveChangesAsync().ConfigureAwait(false) > 0 ? entity : null;
             }
 
             return null;
@@ -46,7 +46,7 @@ namespace DietCalculator.Services
         private async Task<Food> AddAsync(Food food)
         {
             this.DbContext.Foods.Add(food);
-            return await this.DbContext.SaveChangesAsync() > 0 ? food : null;
+            return await this.DbContext.SaveChangesAsync().ConfigureAwait(false) > 0 ? food : null;
         }
 
         private async Task<Food> UpdateAsync(Food food)
@@ -61,7 +61,7 @@ namespace DietCalculator.Services
                 entity.Carbs = food.Carbs;
                 entity.Fats = food.Fats;
 
-                return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
+                return await this.DbContext.SaveChangesAsync().ConfigureAwait(false) > 0 ? entity : null;
             }
 
             return null;

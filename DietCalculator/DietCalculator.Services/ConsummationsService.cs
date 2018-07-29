@@ -34,7 +34,7 @@ namespace DietCalculator.Services
                 this.DbContext.Consummations.Add(entity);
             }
 
-            return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
+            return await this.DbContext.SaveChangesAsync().ConfigureAwait(false) > 0 ? entity : null;
         }
 
         public async Task<Consummation> DeleteAsync(int id, bool withSave = true)
@@ -46,7 +46,7 @@ namespace DietCalculator.Services
                 this.DbContext.Consummations.Remove(entity);
                 if (withSave)
                 {
-                    return await this.DbContext.SaveChangesAsync() > 0 ? entity : null;
+                    return await this.DbContext.SaveChangesAsync().ConfigureAwait(false) > 0 ? entity : null;
                 }
             }
 

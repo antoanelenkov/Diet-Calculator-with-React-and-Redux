@@ -54683,10 +54683,6 @@
 	  ('def', '\\n+(?=' + block.def.source + ')')
 	  ();
 	
-	block.blockquote = replace(block.blockquote)
-	  ('def', block.def)
-	  ();
-	
 	block._tag = '(?!(?:'
 	  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
 	  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
@@ -55101,7 +55097,7 @@
 	  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
 	  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
 	  em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-	  code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
+	  code: /^(`+)([\s\S]*?[^`])\1(?!`)/,
 	  br: /^ {2,}\n(?!\s*$)/,
 	  del: noop,
 	  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
@@ -55222,9 +55218,11 @@
 	    if (cap = this.rules.autolink.exec(src)) {
 	      src = src.substring(cap[0].length);
 	      if (cap[2] === '@') {
-	        text = cap[1].charAt(6) === ':'
+	        text = escape(
+	          cap[1].charAt(6) === ':'
 	          ? this.mangle(cap[1].substring(7))
-	          : this.mangle(cap[1]);
+	          : this.mangle(cap[1])
+	        );
 	        href = this.mangle('mailto:') + text;
 	      } else {
 	        text = escape(cap[1]);
@@ -55305,7 +55303,7 @@
 	    // code
 	    if (cap = this.rules.code.exec(src)) {
 	      src = src.substring(cap[0].length);
-	      out += this.renderer.codespan(escape(cap[2], true));
+	      out += this.renderer.codespan(escape(cap[2].trim(), true));
 	      continue;
 	    }
 	
@@ -55519,9 +55517,12 @@
 	    } catch (e) {
 	      return '';
 	    }
-	    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0) {
+	    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0 || prot.indexOf('data:') === 0) {
 	      return '';
 	    }
+	  }
+	  if (this.options.baseUrl && !originIndependentUrl.test(href)) {
+	    href = resolveUrl(this.options.baseUrl, href);
 	  }
 	  var out = '<a href="' + href + '"';
 	  if (title) {
@@ -55532,6 +55533,9 @@
 	};
 	
 	Renderer.prototype.image = function(href, title, text) {
+	  if (this.options.baseUrl && !originIndependentUrl.test(href)) {
+	    href = resolveUrl(this.options.baseUrl, href);
+	  }
 	  var out = '<img src="' + href + '" alt="' + text + '"';
 	  if (title) {
 	    out += ' title="' + title + '"';
@@ -55738,7 +55742,8 @@
 	}
 	
 	function unescape(html) {
-	  return html.replace(/&([#\w]+);/g, function(_, n) {
+		// explicitly match decimal, hex, and named HTML entities
+	  return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig, function(_, n) {
 	    n = n.toLowerCase();
 	    if (n === 'colon') return ':';
 	    if (n.charAt(0) === '#') {
@@ -55761,6 +55766,30 @@
 	    return self;
 	  };
 	}
+	
+	function resolveUrl(base, href) {
+	  if (!baseUrls[' ' + base]) {
+	    // we can ignore everything in base after the last slash of its path component,
+	    // but we might need to add _that_
+	    // https://tools.ietf.org/html/rfc3986#section-3
+	    if (/^[^:]+:\/*[^/]*$/.test(base)) {
+	      baseUrls[' ' + base] = base + '/';
+	    } else {
+	      baseUrls[' ' + base] = base.replace(/[^/]*$/, '');
+	    }
+	  }
+	  base = baseUrls[' ' + base];
+	
+	  if (href.slice(0, 2) === '//') {
+	    return base.replace(/:[^]*/, ':') + href;
+	  } else if (href.charAt(0) === '/') {
+	    return base.replace(/(:\/*[^/]*)[^]*/, '$1') + href;
+	  } else {
+	    return base + href;
+	  }
+	}
+	baseUrls = {};
+	originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
 	
 	function noop() {}
 	noop.exec = noop;
@@ -55896,7 +55925,8 @@
 	  smartypants: false,
 	  headerPrefix: '',
 	  renderer: new Renderer,
-	  xhtml: false
+	  xhtml: false,
+	  baseUrl: null
 	};
 	
 	/**

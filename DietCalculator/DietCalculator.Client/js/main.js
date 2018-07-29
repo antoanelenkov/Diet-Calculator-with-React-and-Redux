@@ -160,7 +160,7 @@ webpackJsonp([0],{
 	
 	var _FoodsPage2 = _interopRequireDefault(_FoodsPage);
 	
-	var _ManageFoodPage = __webpack_require__(/*! ./components/foods/ManageFoodPage */ 273);
+	var _ManageFoodPage = __webpack_require__(/*! ./components/foods/ManageFoodPage */ 274);
 	
 	var _ManageFoodPage2 = _interopRequireDefault(_ManageFoodPage);
 	
@@ -252,7 +252,7 @@ webpackJsonp([0],{
 	
 	var _foodsActions2 = _interopRequireDefault(_foodsActions);
 	
-	var _FoodsPageView = __webpack_require__(/*! ./FoodsPageView */ 272);
+	var _FoodsPageView = __webpack_require__(/*! ./FoodsPageView */ 273);
 	
 	var _FoodsPageView2 = _interopRequireDefault(_FoodsPageView);
 	
@@ -417,7 +417,7 @@ webpackJsonp([0],{
 	
 	var _serverRequestApi2 = _interopRequireDefault(_serverRequestApi);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -539,6 +539,22 @@ webpackJsonp([0],{
 /***/ },
 
 /***/ 272:
+/*!********************************************!*\
+  !*** ./app/constants/CaloriesCountType.js ***!
+  \********************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var PER_HUNDRED_GRAMS = exports.PER_HUNDRED_GRAMS = "Per hundred grams";
+	var PER_ITEM = exports.PER_ITEM = "Per item";
+
+/***/ },
+
+/***/ 273:
 /*!***********************************************!*\
   !*** ./app/components/foods/FoodsPageView.js ***!
   \***********************************************/
@@ -676,7 +692,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 273:
+/***/ 274:
 /*!************************************************!*\
   !*** ./app/components/foods/ManageFoodPage.js ***!
   \************************************************/
@@ -702,7 +718,7 @@ webpackJsonp([0],{
 	
 	var _foodsActions2 = _interopRequireDefault(_foodsActions);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -809,22 +825,6 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 274:
-/*!********************************************!*\
-  !*** ./app/constants/CaloriesCountType.js ***!
-  \********************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var PER_HUNDRED_GRAMS = exports.PER_HUNDRED_GRAMS = "Per hundred grams";
-	var PER_ITEM = exports.PER_ITEM = "Per item";
-
-/***/ },
-
 /***/ 275:
 /*!*****************************************************!*\
   !*** ./app/components/foods/ManageFoodsPageView.js ***!
@@ -841,7 +841,7 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -1060,7 +1060,7 @@ webpackJsonp([0],{
 	
 	var _consumationActions2 = _interopRequireDefault(_consumationActions);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -1263,7 +1263,7 @@ webpackJsonp([0],{
 	
 	var _dateFormatter2 = _interopRequireDefault(_dateFormatter);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -1435,7 +1435,7 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
@@ -1625,7 +1625,7 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 274);
+	var _CaloriesCountType = __webpack_require__(/*! ../../constants/CaloriesCountType */ 272);
 	
 	var CaloriesCountType = _interopRequireWildcard(_CaloriesCountType);
 	
